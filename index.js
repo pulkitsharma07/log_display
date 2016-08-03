@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var send_delta_log = function(socket) {
-	fs.readFile("log_file.log", "utf8", function(err, data) {
+  fs.readFile("log_file.log", "utf8", function(err, data) {
     if (err) throw err;
     socket.emit("change",data.substr(socket.curr_eof,data.length));
     socket.curr_eof = data.length;
