@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<pre id = "log_data">
+
+</pre>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on("change",function(data){
+  	document.getElementById("log_data").textContent += data;
+  	console.log("DATA FROM SERVER\n\n" +  data);
+  });
+</script>
+</html>
